@@ -1,6 +1,6 @@
 {
   "name": "nuxt-cookie-control-texe",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "![Nuxt Cookie Control](https://drive.google.com/a/broj42.com/uc?id=1FGQVyj2s0OT-gpTYxH_FuQhe6oU9iejW)\r ####\r Try it out here:\r [Nuxt.js Cookie Control](https://codesandbox.io/s/vkwqmm577)",
   "main": "lib/module.js",
   "directories": {
