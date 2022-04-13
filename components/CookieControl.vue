@@ -101,9 +101,10 @@ export default {
     showCookieBar(){
       let c = this.cookies.get('cookie_control_enabled_cookies');
       let consent = (this.cookies.get('cookie_control_consent') === 'true');
-      console.log(consent);
+      let rejected = (this.cookies.get('cookie_control_consent_reject') === 'true');
+
       if(this.cookies.consent === false){
-        if(!consent && c.length !== 0){
+        if(!consent && c.length === 0 && rejected !== true){
             // user has not accepted cookies
             return true;
         }
@@ -120,7 +121,14 @@ export default {
     },
 
     setConsent({type='full', consent=true, reload=true, declineAll=false}){
-
+      if(!consent){
+          this.cookies.set({
+            name: 'cookie_control_consent_reject',
+            value: 'true',
+            expires: this.expirationDate,
+            domain: this.$cookies.domain
+          });
+      }
       this.cookies.set({
         name: 'cookie_control_consent',
         value: consent,
